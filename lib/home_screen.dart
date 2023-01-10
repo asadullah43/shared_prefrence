@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -14,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    super.initState();
     getData();
   }
 
@@ -39,22 +42,23 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Email'), Text(email.toString())],
+                children: [const Text('Email'), Text(email.toString())],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Age'), Text(age.toString())],
+                children: [const Text('Age'), Text(age.toString())],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
                 onTap: () async {
                   SharedPreferences sp = await SharedPreferences.getInstance();
                   sp.clear();
+                  // ignore: use_build_context_synchronously
                   Navigator.pushNamed(context, LoginScreen.id);
                 },
                 child: Container(

@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -54,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   sp.setString('password', passwordcontroller.text.toString());
                   sp.setString('age', agecontroller.text.toString());
                   sp.setBool('isLogin', true);
+                  // ignore: use_build_context_synchronously
                   Navigator.pushNamed(context, HomeScreen.id);
                 },
                 child: Container(
